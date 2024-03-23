@@ -122,7 +122,7 @@ function findLongestWord(string) {
 console.log(findLongestWord("May the force be with you"));
 console.log(findLongestWord("The quick brown fox jumped over the lazy dog"))
 
-/////////////////////
+// /////////////////////
 
 function createArrayOfNumbers(min, max) {
     let array =[];
@@ -134,7 +134,7 @@ function createArrayOfNumbers(min, max) {
 
 console.log(createArrayOfNumbers(29, 34));
 
-///////////////////
+// ///////////////////
 
 function filterArray(numbers, value) {
     const newArray = [];
@@ -149,7 +149,7 @@ function filterArray(numbers, value) {
 };
 console.log(filterArray([12, 24, 8, 41, 76], 38));
 
-///////////////////
+// ///////////////////
 
 function getCommonElements (array1, array2) {
     let newArray = [];
@@ -166,23 +166,22 @@ function getCommonElements (array1, array2) {
 console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
 console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
 
-///////////////////////
+// ///////////////////////
 
 function getEvenNumbers(start, end) {
     let array = [];
-    for (let i = start; i <= end; i = +1) {
-        if (i % 2 === 1) {
-            continue;
-        }
-        array.push(i);
-    }
+    for (let i = start; i <= end; i +=1) {
+        if (i % 2 === 0) {
+             array.push(i);
+      };
+  };
     return array;
 };
 
 console.log(getEvenNumbers(6, 12));
 
 
-/////////////////
+// /////////////////
 
 const start = 6;
 const end = 27;
@@ -197,7 +196,7 @@ for (let i = start; i <= end; i += 1) {
 
 console.log(number);
 
-////////////////
+// ////////////////
 
 function findNumber(start, end, divisor) {
 
