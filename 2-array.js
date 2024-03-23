@@ -136,3 +136,8 @@ const newClients = ["Monkong", "Singu"];
 
 const allClients = oldClients.concat(newClients);
 console.log(allClients); ///  ['Mango', 'Ajax', 'Poly', 'Kiwi', 'Monkong', 'Singu']
+
+
+function getExtremeElements(array) {
+ return [array[0], array[array.length - 1]];
+}

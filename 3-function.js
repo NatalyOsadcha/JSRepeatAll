@@ -87,3 +87,81 @@ withdraw(100, 300); // "Операція зняття коштів провед�
 // Різниця в тому, що функціональний вираз не можна викликати до місця 
 // його створення, тільки після нього, тому що це буквально оголошення
 // const змінної.
+
+function makeArray(firstArray, secondArray, maxLength) {
+
+return firstArray.concat(secondArray).length <= maxLength ?
+  firstArray.concat(secondArray) : firstArray.concat(secondArray).slice(0, maxLength);
+
+};
+////////////////////
+function calculateTotalPrice(order) {
+    let total = 0;
+    for (const item of order) {
+        total +=item;
+    };
+    return total
+};
+
+console.log(calculateTotalPrice([2, 2, 3]));
+/////////////////////////
+
+function findLongestWord(string) {
+
+    const array = string.split(' ');
+
+    let longestWord = array[0];
+
+    for (const word of array) {
+        longestWord = longestWord.length >= word.length ? longestWord : word;
+    }
+
+    return longestWord;
+}
+
+console.log(findLongestWord("May the force be with you"));
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"))
+
+/////////////////////
+
+function createArrayOfNumbers(min, max) {
+    let array =[];
+    for (let i = min; i <= max; i += 1) {
+      array.push(i);
+    }
+    return array;
+};
+
+console.log(createArrayOfNumbers(29, 34));
+
+///////////////////
+
+function filterArray(numbers, value) {
+    const newArray = [];
+
+    for (const number of numbers) {
+        if (number > value) {
+            newArray.push(number);
+        }
+       
+    }
+       return newArray;
+};
+console.log(filterArray([12, 24, 8, 41, 76], 38));
+
+///////////////////
+
+function getCommonElements (array1, array2) {
+    let newArray = [];
+
+    for (const element of array1) {
+        if (!array2.includes(element)) {
+        continue
+        }
+        newArray.push(element);
+    }
+    return newArray;
+};
+
+console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
+console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]))
