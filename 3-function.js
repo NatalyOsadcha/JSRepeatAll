@@ -164,4 +164,48 @@ function getCommonElements (array1, array2) {
 };
 
 console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
-console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]))
+console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
+
+///////////////////////
+
+function getEvenNumbers(start, end) {
+    let array = [];
+    for (let i = start; i <= end; i = +1) {
+        if (i % 2 === 1) {
+            continue;
+        }
+        array.push(i);
+    }
+    return array;
+};
+
+console.log(getEvenNumbers(6, 12));
+
+
+/////////////////
+
+const start = 6;
+const end = 27;
+let number;
+
+for (let i = start; i <= end; i += 1) {
+    if (i % 5 === 0) {
+        number = i;
+        break;
+    }
+};
+
+console.log(number);
+
+////////////////
+
+function findNumber(start, end, divisor) {
+
+    for (let i = start; i <= end; i += 1) {
+        if (i % divisor === 0) {
+            return i;
+        }
+    }
+};
+
+console.log(findNumber(16, 35, 7));
