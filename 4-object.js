@@ -151,11 +151,87 @@ const magazine = {
   rating: 8.38,
 };
 
-// Деструктуризуємо
-const { title, author, isPublic, rating, coverImage = "https://via.placeholder.com/640/480", } = magazine;
+///// destructuring
+
+const {title:firstTitle, author, isPublic, rating, coverImage = "https://via.placeholder.com/640/480", } = magazine;
 console.log(coverImage); // default value
 
+console.log(firstTitle); //// changing the name of a variable title:firstTitle
+
 const accessType = isPublic ? "публічному" : "закритому";
-const message = `Книга ${title} автора ${author} з рейтингом ${rating} знаходиться в ${accessType} доступі.`;
+const message = `Книга ${firstTitle} автора ${author} з рейтингом ${rating} знаходиться в ${accessType} доступі.`;
+
+
+////////// destructuring in cycle
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "На березі спокійних вод",
+    author: "Роберт Шеклі",
+    rating: 8.51,
+  },
+];
+
+for (const book of books) {
+  console.log(book.title);
+  console.log(book.author);
+  console.log(book.rating);
+}
+
+for (const book of books) {
+    const { title, author, rating } = book;
+    console.log(title);
+}
+
+/////////// Deep destructuring
+
+const userCard = {
+  nameFull: "Jacques Gluke",
+  tag: "jgluke",
+  stats: {
+    followers: 5603,
+    views: 4827,
+    likes: 1308,
+  },
+};
+
+const {
+  nameFull,
+  tag,
+  stats: { followers, views: userViews, likes: userLikes = 0 },
+} = userCard;
+
+console.log(userViews);
+
+
+// Pattern "Parameter Object"
+
+function doStuffWithBook(book) {
+  const { title, numberOfPages, downloads, rating, isPublic } = book;
+  console.log(title);
+  console.log(numberOfPages);
+}
+
+/////
+function doStuffWithBook1({
+  title,
+  numberOfPages,
+  downloads,
+  rating,
+  isPublic,
+}) {
+  console.log(title);
+  console.log(numberOfPages);
+
+}
+
+
+
+
 
 

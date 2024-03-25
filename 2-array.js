@@ -141,3 +141,11 @@ console.log(allClients); ///  ['Mango', 'Ajax', 'Poly', 'Kiwi', 'Monkong', 'Sin
 function getExtremeElements(array) {
  return [array[0], array[array.length - 1]];
 }
+
+
+//////////// деструктурізація масівів
+
+const rgb = [200, 255, 100];
+const [red, green, blue] = rgb;
+
+console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
