@@ -139,5 +139,23 @@ console.log(values);  /////// ['The Last Kingdom', 'Bernard Cornwell', Array(2),
 const entries = Object.entries(book);
 console.log(entries); /// [['title', 'The Last Kingdom'], ['author', 'Bernard Cornwell'], ['genres', Array(2)], ['rating', 8.38]]
 
-///////////////////
+
+
+/////////////////// Destructuring of objects
+
+const magazine = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  isPublic: true,
+  rating: 8.38,
+};
+
+// Деструктуризуємо
+const { title, author, isPublic, rating, coverImage = "https://via.placeholder.com/640/480", } = magazine;
+console.log(coverImage); // default value
+
+const accessType = isPublic ? "публічному" : "закритому";
+const message = `Книга ${title} автора ${author} з рейтингом ${rating} знаходиться в ${accessType} доступі.`;
+
 
