@@ -222,3 +222,42 @@ function includes(array, value) {
 
 console.log(includes([1, 2, 3, 4, 5], 3));
 console.log(includes([1, 2, 3, 4, 5], 17));
+
+
+///////////
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getProductPrice(productName) {
+  for (const product of products) {
+    if (product.name === productName) {
+      return product.price
+    }
+  };
+  return null;
+};
+
+console.log(getProductPrice("Scanner"));
+console.log(getProductPrice("Gri"));
+
+
+////// computational properties/////
+
+function getAllPropValues(propName) {
+  let array = [];
+
+  for (const product of products) {
+    if (product[propName]) {
+      array.push(product[propName]);
+      console.log(product[propName]);
+  }
+  }
+  return array;
+};
+
+console.log(getAllPropValues("price"));
