@@ -254,10 +254,26 @@ function getAllPropValues(propName) {
   for (const product of products) {
     if (product[propName]) {
       array.push(product[propName]);
-      console.log(product[propName]);
   }
   }
   return array;
 };
 
 console.log(getAllPropValues("price"));
+
+//////////////////////
+
+function calculatePrice(productName) {
+  let totalPrice = 0;
+  for (const product of products) {
+    if (productName === product.name) {
+      totalPrice = product.price * product.quantity;
+    }
+  };
+  return totalPrice;
+};
+
+console.log(calculatePrice("Scanner"));
+
+
+////////////

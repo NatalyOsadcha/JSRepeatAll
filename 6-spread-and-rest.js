@@ -44,3 +44,56 @@ function add(first, second, ...other) {
 
 add(1, 2, 2, 3); //// 1,2,[2,3]
 console.log(add(3, 3, 4, 4,)); /// 6
+
+
+//////////////
+
+function addNumbers(...args) {
+  let total = 0;
+  for ( const arg of args) {
+    total += arg;
+}
+return total;
+};
+
+console.log(addNumbers(1, 2, 3));
+
+/////////////
+
+function multiplyNumbers(...args) {
+    let total = 1;
+    for (const arg of args) {
+        total *= arg;
+    }
+    return total;
+};
+
+console.log(multiplyNumbers(10, 10, 10));
+
+////////////////////
+
+function addOverNum(num, ...args) {
+    let total = 0;
+    for (const arg of args) {
+        if (num < arg) {
+            total += arg;
+        }
+    }
+    return total;
+ };
+
+console.log(addOverNum(7, 3, 1, 0, 10, 100));
+
+////////////
+
+function findMatches(array, ...args) {
+    let newArray = [];
+    for (const arg of args) {
+        if (array.includes(arg)) {
+            newArray.push(arg);
+   }
+    }
+    return newArray;
+};
+ 
+console.log(findMatches([2, 4, 6, 8], 1, 3, 5, 8, 2));

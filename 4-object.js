@@ -5,7 +5,7 @@ const user = {
     country: "Jamaica",
     city: "Ocho Rios",
   },
-    hobbies: ["swiming", "music", "sci-fi"],
+  hobbies: ["swiming", "music", "sci-fi"],
 };
 
 const location = user.location;
@@ -20,22 +20,21 @@ console.log(hobbies);
 const firstHobby = hobbies[0];
 console.log(firstHobby);
 
-const name = user['name'];
+const name = user["name"];
 console.log(name);
 
-const properKey = 'hobbies';
+const properKey = "hobbies";
 console.log(user[properKey]);
 
 //////////////
 
-user.tag = 'qwerty';
+user.tag = "qwerty";
 
 ///////////////
 
-user.surname = 'Folly';
+user.surname = "Folly";
 
 console.log(user);
-
 
 //////////////
 
@@ -52,43 +51,46 @@ console.log(person.age); // 25
 
 /////////////  computed properties
 
-const properColor = 'color';
+const properColor = "color";
 
 const fruit = {
-    type: 'apple',
-    [properColor]: 'red',
+  type: "apple",
+  [properColor]: "red",
 };
 
 console.log(fruit.color);
-
 
 ///////////////
 
 const bookShelf = {
   books: ["The Last Kingdom", "Dream Guardian"],
-    // методи об'єкта
-    getObject() {
-        return this;
-    },
-    getBooks() {
-        return this.books;
-    },
-    addBook(bookName) {
-        this.books.push(bookName);
-    },
-    removeBook(bookName) {
-        const bookIndex = this.books.indexOf(bookName);
-        this.books.splice(bookIndex, 1);
-    },
+  // методи об'єкта
+  getObject() {
+    return this;
+  },
+  getBooks() {
+    return this.books;
+  },
+  addBook(bookName) {
+    this.books.push(bookName);
+  },
+  removeBook(bookName) {
+    const bookIndex = this.books.indexOf(bookName);
+    this.books.splice(bookIndex, 1);
+  },
+  updateBook(oldName, newName) {
+    const bookIndex = this.books.indexOf(oldName);
+    this.books.splice(bookIndex, 1, newName);
+  },
 };
 
 // Виклики методів
 console.log(bookShelf.getObject()); //// {books: Array(2), getObject: ƒ, getBooks: ƒ, addBook: ƒ}
 console.log(bookShelf.getBooks()); ///  ['The Last Kingdom', 'Dream Guardian']
-bookShelf.addBook('New book');
-bookShelf.removeBook('Dream Guardian');
+bookShelf.addBook("New book");
+bookShelf.removeBook("Dream Guardian");
+bookShelf.updateBook("New book", "Duna");
 console.log(bookShelf);
-
 
 ////////////// for ... in cycle
 
@@ -100,12 +102,12 @@ const book = {
 };
 
 for (const key in book) {
-    if (book.hasOwnProperty(key)) {
-     console.log(key);   // Ключ / імя властивості
+  if (book.hasOwnProperty(key)) {
+    console.log(key); // Ключ / імя властивості
     console.log(book[key]); // Значення властивості з таким ключем
-    console.log(key, book[key]);  
-} 
-};
+    console.log(key, book[key]);
+  }
+}
 
 ///////////// Object.create() hasOwnProperty()​
 
@@ -119,27 +121,25 @@ console.log(dog); // {name: 'Манго'}
 console.log(dog.name); // 'Манго'
 console.log(dog.legs); // 4
 
-console.log(dog.hasOwnProperty('legs')); /// false
-console.log(dog.hasOwnProperty('name')); ////// true
+console.log(dog.hasOwnProperty("legs")); /// false
+console.log(dog.hasOwnProperty("name")); ////// true
 
 /////////////////   Object.keys()​
 
 const keys = Object.keys(book);
 
-console.log(keys) /////// ['title', 'author', 'genres', 'rating']
+console.log(keys); /////// ['title', 'author', 'genres', 'rating']
 
 /////////////////////     Object.values()​
 
 const values = Object.values(book);
 
-console.log(values);  /////// ['The Last Kingdom', 'Bernard Cornwell', Array(2), 8.38]
+console.log(values); /////// ['The Last Kingdom', 'Bernard Cornwell', Array(2), 8.38]
 
 ///////////// Object.entries();
 
 const entries = Object.entries(book);
 console.log(entries); /// [['title', 'The Last Kingdom'], ['author', 'Bernard Cornwell'], ['genres', Array(2)], ['rating', 8.38]]
-
-
 
 /////////////////// Destructuring of objects
 
@@ -153,14 +153,19 @@ const magazine = {
 
 ///// destructuring
 
-const {title:firstTitle, author, isPublic, rating, coverImage = "https://via.placeholder.com/640/480", } = magazine;
+const {
+  title: firstTitle,
+  author,
+  isPublic,
+  rating,
+  coverImage = "https://via.placeholder.com/640/480",
+} = magazine;
 console.log(coverImage); // default value
 
 console.log(firstTitle); //// changing the name of a variable title:firstTitle
 
 const accessType = isPublic ? "публічному" : "закритому";
 const message = `Книга ${firstTitle} автора ${author} з рейтингом ${rating} знаходиться в ${accessType} доступі.`;
-
 
 ////////// destructuring in cycle
 
@@ -184,8 +189,8 @@ for (const book of books) {
 }
 
 for (const book of books) {
-    const { title, author, rating } = book;
-    console.log(title);
+  const { title, author, rating } = book;
+  console.log(title);
 }
 
 /////////// Deep destructuring
@@ -208,7 +213,6 @@ const {
 
 console.log(userViews);
 
-
 // Pattern "Parameter Object"
 
 function doStuffWithBook(book) {
@@ -227,11 +231,62 @@ function doStuffWithBook1({
 }) {
   console.log(title);
   console.log(numberOfPages);
-
 }
 
+////////////////
 
+const atTheOldToad = {
+  poisons: [
+    {
+      name: "Speed potion",
+      price: 300,
+    },
+    {
+      name: "Dragon breath",
+      price: 700,
+    },
+    {
+      name: "Stone skin",
+      price: 1100,
+    },
+  ],
+  getPoison() {
+    return this.poisons;
+  },
 
+  addPoison(newPoison) {
+    for (const poison of this.poisons) {
+      if (poison.name === newPoison.name) {
+        return `Error! Poison ${newPoison.name} is already in your inventory!`;
+      }
+    }
+    this.poisons.push(newPoison);
+  },
 
+  deletePoison(poisonName) {
+    for (const [index, poison] of this.poisons.entries()) {
+      if (poison.name === poisonName) {
+        this.poisons.splice(index, 1);
+        return ` ${poisonName} deleted`;
+      }
+    }
+      return `${poisonName} not found`
+  },
 
+ updatePotionName(oldName, newName) {
+     for (const poison of this.poisons) {
+         if (poison.name === oldName) {
+             poison.name = newName
+             return `Changed`
+     }
+     }
+      return `${oldName} is not in inventory!`
+    },
+};
 
+console.log(atTheOldToad.getPoison());
+atTheOldToad.addPoison({ name: "Invisibility", price: 620 });
+console.log(atTheOldToad.addPoison({ name: "Invisibility", price: 620 }));
+console.log(atTheOldToad.deletePoison("Stone skin"));
+atTheOldToad.updatePotionName("Speed potion", "Snake skin")
+console.log(atTheOldToad.getPoison());
