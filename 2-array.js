@@ -9,11 +9,14 @@ console.table(clients);
 const lastArrayIndex = clients.length - 1;
 console.log(clients[lastArrayIndex]); // 'Poly
 
+////////// cycle for
 
 for (let i = 0; i < clients.length; i += 1) {
     console.log(clients[i]);
 };
 
+
+///////////// cycle for of
 
 for (const client of clients) {
     console.log( client)
@@ -149,3 +152,14 @@ const rgb = [200, 255, 100];
 const [red, green, blue] = rgb;
 
 console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
+
+
+///////////////// array.forEach(function callback(element, index, array))
+
+const arrayForEach = [5, 10, 15, 20, 25];
+
+arrayForEach.forEach(function (number, index) {
+    console.log(`Index:${index}, Number:${number}`);
+})
+
+
