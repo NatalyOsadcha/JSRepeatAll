@@ -2,8 +2,6 @@
 
 function multiply(x, y, z) {
   console.log("Код до return виконується звичайним чином");
-
-  // Повертаємо результат виразу множення
   return x * y * z;
 
   console.log("Цей лог ніколи не виконається, він стоїть після return");
@@ -276,4 +274,17 @@ function calculatePrice(productName) {
 console.log(calculatePrice("Scanner"));
 
 
-////////////
+////////////  Arrow function
+
+////explicit return
+const addArrowFn = (a, b) => {
+  return a + b
+};
+
+console.log(addArrowFn(2, 3));
+
+////implicit return
+
+const multiplyArrowFn = (a, b) => a * b;
+
+console.log(multiplyArrowFn(2, 4));
