@@ -175,3 +175,26 @@ console.log(letters.sort()); //// ['A', 'B', 'C', 'a', 'b', 'c']
 console.log([...letters].sort((a, b) => a.localeCompare(b))); //// ['a', 'A', 'b', 'B', 'c', 'C']
 console.log([...letters].sort((a, b) => b.localeCompare(a)));//// ['C', 'c', 'B', 'b', 'A', 'a']
 
+////////////  sort() objects
+
+const inAscendingScoreOrder = [...students].sort((firstStudent, secondStudent) => firstStudent.score - secondStudent.score);
+
+console.log(inAscendingScoreOrder);
+
+const inDescendingScoreOrder = [...students].sort((firstStudent, secondStudent) => secondStudent.score - firstStudent.score);
+console.log(inDescendingScoreOrder);
+
+
+const inAlphabeticalOrder = [...students].sort((a, b) => a.name.localeCompare(b.name));
+console.log(inAlphabeticalOrder);
+
+
+/////////////   method chains
+
+const names = [...students].sort((a, b) => a.score - b.score).map(student => student.name);
+console.log(names);
+
+
+const uniqueSortedCourses = students.flatMap(student => student.courses).filter((course, index, array) => array.indexOf(course)=== index).sort((a,b)=> a.localeCompare(b));
+
+console.log(uniqueSortedCourses);///  ['biology', 'informatics', 'literature', 'mathematics', 'physics']
