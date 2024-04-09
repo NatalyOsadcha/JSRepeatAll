@@ -141,9 +141,7 @@ class Users {
   #role;
 
   constructor({ email, role }) {
-    (this.#email = email),
-    (this.#role = role),
-    Users.#takenEmails.push(email);
+    (this.#email = email), (this.#role = role), Users.#takenEmails.push(email);
   }
 
   get email() {
@@ -180,13 +178,13 @@ console.log(Users.isEmailTaken("net@gmail.com")); /// true
 //////////////  Child class constructor
 
 class ContentEditor extends Users {
-    constructor({ email, role, posts }) {
-        super({ email, role });
+  constructor({ email, role, posts }) {
+    super({ email, role });
     this.posts = posts;
-    }
-    addPost(newPost) {
-        this.posts.push(newPost)
-    }
+  }
+  addPost(newPost) {
+    this.posts.push(newPost);
+  }
 }
 
 const editor = new ContentEditor({
@@ -198,5 +196,66 @@ console.log(editor);
 console.log(editor.role); // editor
 console.log(editor.email); /// mango@mail.com
 console.log(editor.posts); /// []
-editor.addPost('post-1');
-console.log(editor.posts); 
+editor.addPost("post-1");
+console.log(editor.posts);
+
+//////////////
+
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+
+  removeItem(itemToRemove) {
+    this.items = this.items.filter((item) => item !== itemToRemove);
+  }
+  removeItemAlt(itemToRemove) {
+    const index = this.items.indexOf(itemToRemove);
+    this.items.splice(index, 1);
+  }
+}
+
+const storage = new Storage([1, 2, 3, 4, 5]);
+console.log(storage.getItems());
+storage.addItem(8);
+console.log(storage.getItems());
+storage.removeItem(1);
+storage.removeItem(15);
+console.log(storage.getItems());
+storage.removeItemAlt(5);
+console.log(storage.getItems());
+
+//////////////////
+
+class StringBuilder{
+    #value
+    constructor(initialValue) {
+        this.#value = initialValue;
+    }
+    getValue() {
+        return this.#value
+    };
+    padEnd(str) {
+        this.#value = this.#value+str
+    }
+    padStart(str) {
+       this.#value = str+this.#value
+    }
+    padBoth(str) {
+        this.#value = str +this.#value+str
+    }
+}
+
+const builder = new StringBuilder(".");
+builder.padStart("^");
+builder.padEnd("^");
+builder.padBoth("=");
+console.log(builder.getValue());
