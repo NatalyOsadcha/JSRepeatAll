@@ -107,4 +107,35 @@ image.width = "300";
 
 link.after(heading, image);
 
-// heading.remove();
+heading.remove(); //// delete el
+
+
+//////////////   innerHTML
+
+const article = document.querySelector('.article');
+console.log(article.innerHTML);
+
+textEl.innerHTML = 'Welcome to <span class="span">paradise</span>';
+
+const titleSpan = document.querySelector('.article-title .span')
+titleSpan.style.color = 'orange';
+titleSpan.style.textDecoration = 'underline';
+// titleSpan.innerHTML = '' // to clean row
+
+
+const technologies = ["HTML", "CSS", "JavaScript"];
+const technoList = document.querySelector('.techno-list');
+
+const markup = technologies.map(technology => `<li class="techno-item">${technology}</li>`).join('')
+console.log(markup);
+
+technoList.innerHTML = markup;
+
+
+//////////////  insertAdjacentHTML()​
+
+const newTechnologies = ["React", "TypeScript", "Node.js"];
+
+const newMarkup = newTechnologies.map(technology => `<li>${technology}</li>`).join('');
+
+technoList.insertAdjacentHTML("beforeend", newMarkup);
