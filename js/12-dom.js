@@ -139,3 +139,8 @@ const newTechnologies = ["React", "TypeScript", "Node.js"];
 const newMarkup = newTechnologies.map(technology => `<li>${technology}</li>`).join('');
 
 technoList.insertAdjacentHTML("beforeend", newMarkup);
+
+
+//////////////
+
+
